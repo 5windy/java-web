@@ -4,5 +4,7 @@
 /build/
 .settings
 .classpath
+.project
+
 /META-INF/
 /lib/
