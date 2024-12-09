@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.error-msg-group > li,
+.error-msg {
+	display: none;
+	color: red;
+}
