@@ -12,6 +12,6 @@ window.onload = () => {
 		// 4. submit 동작을 활성화  
 		
 		// form.submit();
-	})
+	});
 	
 }

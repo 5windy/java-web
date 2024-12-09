@@ -11,6 +11,7 @@
 <body>
 	<h1>회원가입</h1>
 	<form id="form-join" method="POST" action="/joinFormPro.jsp">
+		<p id="info">실명 인증된 아이디로 가입<span></span></p>
 		<div>
 			<input type="text" id="username" name="username" placeholder="아이디">
 			<input type="password" id="password" name="password" placeholder="비밀번호">
@@ -23,7 +24,7 @@
 		<div>
 			<input type="text" id="name" name="name" placeholder="이름">
 			<input type="number" id="birth" name="birth" placeholder="생년월일 8자리">
-			<select name="telecom">
+			<select id="telecom" name="telecom">
 				<option value="" selected disabled>통신사 선택</option>
 				<option value="skt">SKT</option>
 				<option value="kt">KT</option>
@@ -32,17 +33,31 @@
 				<option value="kt-low">KT 알뜰폰</option>
 				<option value="lgt-low">LG U+ 알뜰폰</option>
 			</select>
-			<div>
-				<span>남자</span>
-				<input type="radio" id="gender-male" name="gender" value="male">
-				<span>여자</span>
-				<input type="radio" id="gender-female" name="gender" value="female">
-			</div>
-			<div>
-				<span>내국인</span>
-				<input type="radio" id="country-local" name="country" value="local" checked>
-				<span>외국인</span>
-				<input type="radio" id="country-foreigner" name="country" value="foreigner">
+			<div id="radios">
+				<div class="radio-group">
+					<input type="radio" id="gender-male" name="gender" value="male">
+					<input type="radio" id="gender-female" name="gender" value="female">
+					<div>
+						<label for="gender-male">
+							<span id="label-for-gender-male">남자</span>
+						</label>
+						<label for="gender-female">
+							<span id="label-for-gender-female">여자</span>
+						</label>
+					</div>
+				</div>
+				<div class="radio-group">
+					<input type="radio" id="country-local" name="country" value="local" checked>
+					<input type="radio" id="country-foreigner" name="country" value="foreigner">
+					<div>
+						<label for="country-local">
+							<span id="label-for-country-local">내국인</span>
+						</label>
+						<label for="country-foreigner">
+							<span id="label-for-country-foreigner">외국인</span>
+						</label>
+					</div>
+				</div>
 			</div>
 			<input type="text" id="phone" name="phone" placeholder="휴대전화번호">
 		</div>
@@ -53,15 +68,17 @@
 			<li id="error-msg-gender">성별: 성별을 선택해 주세요.</li>
 			<li id="error-msg-phone">휴대전화번호: 필수 정보입니다.</li>
 		</ul>
-		<div>
+		<div id="agree-box">
 			<input type="checkbox" id="agree" name="agree">
-			<p><strong>[필수]</strong>인증 약관 전체동의</p>
+			<label for="agree">
+				<div id="icon-img"></div>
+				<p><strong>[필수]</strong>인증 약관 전체동의</p>
+			</label>
 		</div>
 		<p id="error-msg-agree" class="error-msg">필수 약관에 모두 동의해 주세요.</p>
 	
 		<input type="submit" value="인증요청">
 	</form>
-
 
 </body>
 </html>
