@@ -18,8 +18,11 @@
 			<input type="email" id="email" name="email" placeholder="[선택] 이메일주소 (비밀번호 찾기 등 본인 확인용)">
 		</div>
 		<ul class="error-msg-group">
+			<li id="error-msg-username-pattern">아이디: 5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.</li>
 			<li id="error-msg-username">아이디: 사용할 수 없는 아이디입니다. 다른 아이디를 입력해 주세요.</li>
-			<li id="error-msg-password">비밀번호: 필수 정보입니다.</li>
+			<li id="error-msg-username-empty">아이디: 필수 정보입니다.</li>
+			<li id="error-msg-password-pattern">비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</li>
+			<li id="error-msg-password-empty">비밀번호: 필수 정보입니다.</li>
 		</ul>
 		<div>
 			<input type="text" id="name" name="name" placeholder="이름">
@@ -62,11 +65,15 @@
 			<input type="text" id="phone" name="phone" placeholder="휴대전화번호">
 		</div>
 		<ul class="error-msg-group">
-			<li id="error-msg-name">이름: 필수 정보입니다.</li>
-			<li id="error-msg-birth">생년월일: 필수 정보입니다.</li>
-			<li id="error-msg-telecom">통신사: 이용하는 통신사를 선택해 주세요.</li>
-			<li id="error-msg-gender">성별: 성별을 선택해 주세요.</li>
-			<li id="error-msg-phone">휴대전화번호: 필수 정보입니다.</li>
+			<li id="error-msg-name-empty">이름: 필수 정보입니다.</li>
+			<li id="error-msg-name-pattern">이름: 한글, 영문 대/소문자를 사용해 주세요. (특수기호, 공백 사용 불가)</li>
+			<li id="error-msg-birth-empty">생년월일: 필수 정보입니다.</li>
+			<li id="error-msg-birth-pattern">생년월일: 생년월일은 8자리 숫자로 입력해 주세요.</li>
+			<li id="error-msg-birth-range">생년월일: 생년월일이 정확한지 확인해 주세요.</li>
+			<li id="error-msg-telecom-empty">통신사: 이용하는 통신사를 선택해 주세요.</li>
+			<li id="error-msg-gender-empty">성별: 성별을 선택해 주세요.</li>
+			<li id="error-msg-phone-empty">휴대전화번호: 필수 정보입니다.</li>
+			<li id="error-msg-phone-pattern">휴대전화번호: 휴대전화번호가 정확한지 확인해 주세요.</li>
 		</ul>
 		<div id="agree-box">
 			<input type="checkbox" id="agree" name="agree">
