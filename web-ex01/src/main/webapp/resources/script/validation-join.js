@@ -317,7 +317,7 @@ window.onload = () => {
 function formatPhoneString(str) {
 	let result = "";
 	
-	str.replaceAll(/\D/g, "");	// 숫자만 문자열 안에 남음
+	str = str.replaceAll(/\D/g, "");	// 숫자만 문자열 안에 남음
 	console.log("str : ", str);
 	
 	if(str.length === 11 && /^[010]/.test(str)) {
