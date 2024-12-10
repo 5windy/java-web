@@ -89,9 +89,15 @@ form>div>input:not(:first-child), form>div>select:not(:first-child),
 	border-top: none;
 }
 
+.error-msg-group>li::before {
+	content: "○ ";
+}
+
 .error-msg-group>li, .error-msg {
+	font-size: 0.7em;
 	display: none;
 	color: red;
+	margin-bottom: 5px;
 }
 
 #agree:checked ~ label #icon-img {
