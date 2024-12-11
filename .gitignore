@@ -1,6 +1,7 @@
 .metadata
 /Servers/
 
+build
 /build/
 .settings
 .classpath
