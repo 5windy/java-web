@@ -29,12 +29,12 @@
 			<input type="number" id="birth" name="birth" placeholder="생년월일 8자리">
 			<select id="telecom" name="telecom">
 				<option value="" selected disabled>통신사 선택</option>
-				<option value="skt">SKT</option>
-				<option value="kt">KT</option>
-				<option value="lgt">LG U+</option>
-				<option value="skt-low">SKT 알뜰폰</option>
-				<option value="kt-low">KT 알뜰폰</option>
-				<option value="lgt-low">LG U+ 알뜰폰</option>
+				<option value="1">SKT</option>
+				<option value="2">KT</option>
+				<option value="3">LG U+</option>
+				<option value="4">SKT 알뜰폰</option>
+				<option value="5">KT 알뜰폰</option>
+				<option value="6">LG U+ 알뜰폰</option>
 			</select>
 			<div id="radios">
 				<div class="radio-group">

@@ -1,3 +1,5 @@
+<%@page import="user.model.UserDao"%>
+<%@page import="user.model.UserRequestDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,16 +23,15 @@ String country = request.getParameter("country");
 String phone = request.getParameter("phone");
 String agree = request.getParameter("agree");
 
-System.out.println("username :" + username);
-System.out.println("password :" + password);
-System.out.println("email :" + email);
-System.out.println("name :" + name);
-System.out.println("birth :" + birth);
-System.out.println("telecom :" + telecom);
-System.out.println("gender :" + gender);
-System.out.println("country :" + country);
-System.out.println("phone :" + phone);
-System.out.println("agree :" + agree);
+// 사용자의 입력한 정보를 서버로 전달하여
+// 회원가입 처리 (DB에 INSERT : Transaction)
+
+// 생성할 객체는 UserRequestDto 
+UserRequestDto userDto = new UserRequestDto(username, password, email, name, birth, telecom, gender, country, phone, agree);
+
+UserDao userDao = UserDao.getInstance();
+userDao.createUser(userDto);
+
 %>
 </body>
 </html>
