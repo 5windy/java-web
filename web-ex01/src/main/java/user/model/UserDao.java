@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 import util.DBManager;
 
 // DAO : Data Access Object 
@@ -41,7 +43,11 @@ public class UserDao {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userDto.getUsername());
-			pstmt.setString(2, userDto.getPassword());
+			
+			String rawPassword = userDto.getPassword();
+			String hashedPassword = BCrypt.hashpw(rawPassword, BCrypt.gensalt());
+			
+			pstmt.setString(2, hashedPassword);
 			pstmt.setString(3, userDto.getEmail());
 			pstmt.setString(4, userDto.getName());
 			pstmt.setDate(5, userDto.getBirth());

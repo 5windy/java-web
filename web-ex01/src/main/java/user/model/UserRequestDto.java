@@ -2,6 +2,8 @@ package user.model;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 // DTO : Data Transfer Object 
 // ㄴ 데이터 교환(처리용) 객체 
@@ -59,11 +61,18 @@ public class UserRequestDto {
 		this.email = email.equals("") ? null : email;
 		this.name = name;
 		
-		int year = Integer.parseInt(birth.substring(0, 4));
-		int month = Integer.parseInt(birth.substring(4, 6));
-		int day = Integer.parseInt(birth.substring(6, 8));
+//		int year = Integer.parseInt(birth.substring(0, 4));
+//		int month = Integer.parseInt(birth.substring(4, 6));
+//		int day = Integer.parseInt(birth.substring(6, 8));
+//		this.birth = new Date(year-1900, month+1, day);
 		
-		this.birth = new Date(year, month, day);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		try {
+			java.util.Date date = sdf.parse(birth);
+			this.birth = new Date(date.getTime());
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 		
 		this.telecom = Integer.parseInt(telecom);
 		this.gender = gender;
