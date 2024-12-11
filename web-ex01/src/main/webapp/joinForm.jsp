@@ -1,3 +1,4 @@
+<%@page import="user.model.UserRequestDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,11 +10,14 @@
 <title>회원가입</title>
 </head>
 <body>
+	<%
+	UserRequestDto userDto = (UserRequestDto) request.getAttribute("userData");
+	%>
 	<h1>회원가입</h1>
 	<form id="form-join" method="POST" action="/joinFormPro.jsp">
 		<p id="info">실명 인증된 아이디로 가입<span></span></p>
 		<div>
-			<input type="text" id="username" name="username" placeholder="아이디">
+			<input type="text" id="username" name="username" placeholder="아이디" value="<%=userDto != null ? userDto.getUsername() : ""%>">
 			<input type="password" id="password" name="password" placeholder="비밀번호">
 			<input type="email" id="email" name="email" placeholder="[선택] 이메일주소 (비밀번호 찾기 등 본인 확인용)">
 		</div>

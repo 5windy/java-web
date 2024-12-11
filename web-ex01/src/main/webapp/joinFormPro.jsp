@@ -30,7 +30,27 @@ String agree = request.getParameter("agree");
 UserRequestDto userDto = new UserRequestDto(username, password, email, name, birth, telecom, gender, country, phone, agree);
 
 UserDao userDao = UserDao.getInstance();
-userDao.createUser(userDto);
+
+// 1) 중복 아이디 검사 findUserByUsername()
+// 2) 중복 이메일 검사 findUserByEmail()
+// 3) 중복 연락처 검사 findUserByPhone()
+
+// 중복이 확인되면 -> joinForm.jsp 페이지로 이동 
+// ㄴ 기존에 입력한 값이 폼에 다시 보이도록 처리
+// ㄴ JSP 내장 객체 중, request 객체 활용
+// ㄴ page < request < session < application 
+if(true) {
+	request.setAttribute("userData", userDto);
+	request.getRequestDispatcher("/joinForm.jsp").forward(request, response);
+	// 주소의 변화가 없음
+	
+} else {
+	// 통과하면 -> loginForm.jsp 페이지로 이동
+	userDao.createUser(userDto);
+	response.sendRedirect("/loginForm.jsp");
+	// 단순 페이지 이동처리를 할 경우, request 객체를 들고 가지 못함
+}
+
 
 %>
 </body>
