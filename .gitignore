@@ -6,5 +6,8 @@
 .classpath
 .project
 
-/META-INF/
-/lib/
+/META-INF
+/lib
+
+*.jar
+context.xml
