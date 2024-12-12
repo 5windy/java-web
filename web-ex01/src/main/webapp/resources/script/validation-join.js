@@ -26,14 +26,14 @@ window.onload = () => {
 	// 3. 모든 항목이 유효하면 
 	// 4. submit 동작을 활성화
 	
-	let isValidUsername = false;
-	let isValidPassword = false;
-	let isValidName = false;
-	let isValidBirth = false;
-	let isValidTelecom = false;
-	let isValidPhone = false;
+	let isValidUsername = validateUsername(username.value);
+	let isValidPassword = validatePassword(password.value);
+	let isValidName = validateName(name.value);
+	let isValidBirth = validateBirth(birth.value);
+	let isValidTelecom = telecom.value !== "";
+	let isValidPhone = validatePhone(phone.value);
 	let isValidAgree = false;
-	let isValidGender = false;
+	let isValidGender = genderMale.checked || genderFemale.checked;
 	
 	username.addEventListener("change", e => {
 		const input = e.target.value;
