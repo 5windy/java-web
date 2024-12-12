@@ -44,7 +44,13 @@ public class User {
 	}
 
 	public boolean checkPassword(String password) {
-		return BCrypt.checkpw(password, this.password);
+		boolean isChecked = true;
+		try {
+			isChecked = BCrypt.checkpw(password, this.password);
+		} catch (Exception e) {
+			System.err.println("암호화되지 않은 값이 저장되어 있습니다.");
+		}
+		return isChecked;
 	}
 
 	public String getEmail() {
