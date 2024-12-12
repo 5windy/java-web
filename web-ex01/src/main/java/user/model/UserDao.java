@@ -279,4 +279,25 @@ public class UserDao {
 		
 		return findUserByUsername(userDto.getUsername());
 	}
+	
+	// Delete
+	public void deleteUserByUsername(String username) {
+		conn = DBManager.getConnection();
+		
+		if(conn != null) {
+			String sql = "DELETE FROM users WHERE username=?";
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, username);
+				
+				pstmt.execute();
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt);
+			}
+		}
+	}
 }
