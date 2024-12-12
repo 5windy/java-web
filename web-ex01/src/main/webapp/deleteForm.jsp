@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/resources/style/form.css">
 <script type="module" src="/resources/script/validation-login.js"></script>
-<title>로그인</title>
+<title>회원탈퇴</title>
 </head>
 <body>
 <%

@@ -18,6 +18,10 @@ String url = "";
 if(user.checkPassword(password)) {
 	UserDao userDao = UserDao.getInstance();
 	userDao.deleteUserByUsername(user.getUsername());
+	
+	session.removeAttribute("log");
+	session.invalidate();
+	
 	url = "/";
 	
 } else {
