@@ -32,7 +32,7 @@
 		<div>
 			<input type="text" id="username" name="username" placeholder="아이디" value="<%=userDto != null ? userDto.getUsername() : ""%>">
 			<input type="password" id="password" name="password" placeholder="비밀번호">
-			<input type="email" id="email" name="email" placeholder="[선택] 이메일주소 (비밀번호 찾기 등 본인 확인용)" value="<%=userDto != null ? userDto.getEmail() : ""%>">
+			<input type="email" id="email" name="email" placeholder="[선택] 이메일주소 (비밀번호 찾기 등 본인 확인용)" value="<%=userDto != null && userDto.getEmail() != null ? userDto.getEmail() : ""%>">
 		</div>
 		<ul class="error-msg-group">
 			<li id="error-msg-username-pattern">아이디: 5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.</li>
