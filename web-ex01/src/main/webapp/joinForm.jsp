@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/resources/style/form.css">
-<script src="/resources/script/validation-join.js"></script>
+<script type="module" src="/resources/script/validation-join.js"></script>
 <title>회원가입</title>
 </head>
 <body>

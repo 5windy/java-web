@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+// 아이디와 패스워드를 검증
+// findUserByUsername()
+// 
 
+%>
 </body>
 </html>
