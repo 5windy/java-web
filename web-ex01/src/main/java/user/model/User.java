@@ -3,6 +3,8 @@ package user.model;
 import java.sql.Timestamp;
 import java.time.LocalDate;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 // 목적 : 연동된 데이터베이스로부터 얻어온 튜플(레코드)=행 을 자바에서 객체로 다루고 정보를 읽기 위함 
 // ㄴ VO (Value Object)
 // ㄴ Read Only (public getter 제공, setter는 제공 X)
@@ -41,8 +43,8 @@ public class User {
 		return username;
 	}
 
-	public String getPassword() {
-		return password;
+	public boolean checkPassword(String password) {
+		return BCrypt.checkpw(password, this.password);
 	}
 
 	public String getEmail() {
