@@ -22,6 +22,11 @@ h1 {
 	margin: 50px auto;
 }
 
+h4 {
+	text-align: center;
+	margin-top: 20px;
+}
+
 form {
 	min-width: 400px;
 	width: 50vw;
@@ -204,4 +209,34 @@ input[type="submit"]:hover,
 	background-image: url("https://icons.veryicon.com/png/o/miscellaneous/zr_icon/checkbox-5.png");
 	background-size: cover;
 	filter: invert(80%);
+}
+
+#btn-group {
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 30px;
+}
+
+#btn-group input[type="submit"] {
+	font-size: 0.8em;
+}
+
+#btn-group input[type="submit"],
+#btn-group input[type="button"] {
+	color: white;
+	background-color: var(--primary-color);
+	width: 32%;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+	border-radius: 12px;
+}
+
+#btn-group input[type="submit"]:hover,
+#btn-group input[type="button"]:hover {
+	cursor: pointer;
+}
+
+#btn-group input[type="button"]:last-child {
+	background-color: gray;
 }
