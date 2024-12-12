@@ -76,6 +76,8 @@ if(!isValid) {
 } else {
 	System.out.println("loginForm으로 이동합니다.");
 	
+	session.removeAttribute("userData");
+	
 	// 통과하면 -> loginForm.jsp 페이지로 이동
 	userDao.createUser(userDto);
 	response.sendRedirect("/loginForm.jsp");
