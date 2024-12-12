@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+session.removeAttribute("log");
+session.invalidate();
 
+response.sendRedirect("/");
+%>
 </body>
 </html>
