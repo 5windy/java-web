@@ -68,9 +68,10 @@ if(user != null) {
 if(!isValid) {
 	System.err.println("joinForm으로 되돌아갑니다...");
 	
-	request.setAttribute("userData", userDto);
-	request.getRequestDispatcher("/joinForm.jsp").forward(request, response);
+	session.setAttribute("userData", userDto);
+	// request.getRequestDispatcher("/joinForm.jsp").forward(request, response);
 	// 주소의 변화가 없음
+	response.sendRedirect("/joinForm.jsp");
 	
 } else {
 	System.out.println("loginForm으로 이동합니다.");

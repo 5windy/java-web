@@ -12,7 +12,7 @@
 </head>
 <body>
 	<%
-	UserRequestDto userDto = (UserRequestDto) request.getAttribute("userData");
+	UserRequestDto userDto = (UserRequestDto) session.getAttribute("userData");
 	
 	int telecom = 0;
 	Date date = null;
@@ -30,9 +30,9 @@
 	<form id="form-join" method="POST" action="/joinFormPro.jsp">
 		<p id="info">실명 인증된 아이디로 가입<span></span></p>
 		<div>
-			<input type="text" id="username" name="username" placeholder="아이디" value="<%=userDto != null ? userDto.getUsername() : ""%>">
+			<input type="text" id="username" name="username" placeholder="아이디" value="${userData.username}">
 			<input type="password" id="password" name="password" placeholder="비밀번호">
-			<input type="email" id="email" name="email" placeholder="[선택] 이메일주소 (비밀번호 찾기 등 본인 확인용)" value="<%=userDto != null && userDto.getEmail() != null ? userDto.getEmail() : ""%>">
+			<input type="email" id="email" name="email" placeholder="[선택] 이메일주소 (비밀번호 찾기 등 본인 확인용)" value="${userData.email}">
 		</div>
 		<ul class="error-msg-group">
 			<li id="error-msg-username-pattern">아이디: 5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.</li>
@@ -42,21 +42,21 @@
 			<li id="error-msg-password-empty">비밀번호: 필수 정보입니다.</li>
 		</ul>
 		<div>
-			<input type="text" id="name" name="name" placeholder="이름" value="<%=userDto != null ? userDto.getName() : ""%>">
+			<input type="text" id="name" name="name" placeholder="이름" value="${userData.name}">
 			<input type="number" id="birth" name="birth" placeholder="생년월일 8자리" value="<%=birth%>">
 			<select id="telecom" name="telecom">
-				<option value="" <%=telecom == 0 ? "selected" : ""%> disabled>통신사 선택</option>
-				<option value="1" <%=telecom == 1 ? "selected" : "" %>>SKT</option>
-				<option value="2" <%=telecom == 2 ? "selected" : "" %>>KT</option>
-				<option value="3" <%=telecom == 3 ? "selected" : "" %>>LG U+</option>
-				<option value="4" <%=telecom == 4 ? "selected" : "" %>>SKT 알뜰폰</option>
-				<option value="5" <%=telecom == 5 ? "selected" : "" %>>KT 알뜰폰</option>
-				<option value="6" <%=telecom == 6 ? "selected" : "" %>>LG U+ 알뜰폰</option>
+				<option value="" ${empty userData ? "selected" : "" } disabled>통신사 선택</option>
+				<option value="1" ${userData.telecom eq 1 ? "selected" : ""}>SKT</option>
+				<option value="2" ${userData.telecom eq 2 ? "selected" : ""}>KT</option>
+				<option value="3" ${userData.telecom eq 3 ? "selected" : ""}>LG U+</option>
+				<option value="4" ${userData.telecom eq 4 ? "selected" : ""}>SKT 알뜰폰</option>
+				<option value="5" ${userData.telecom eq 5 ? "selected" : ""}>KT 알뜰폰</option>
+				<option value="6" ${userData.telecom eq 6 ? "selected" : ""}>LG U+ 알뜰폰</option>
 			</select>
 			<div id="radios">
 				<div class="radio-group">
-					<input type="radio" id="gender-male" name="gender" value="male" <%=userDto != null && userDto.getGender().equals("male") ? "checked" : ""%>>
-					<input type="radio" id="gender-female" name="gender" value="female" <%=userDto != null && userDto.getGender().equals("female") ? "checked" : ""%>>
+					<input type="radio" id="gender-male" name="gender" value="male" ${userData.gender eq "male" ? "checked" : "" }>
+					<input type="radio" id="gender-female" name="gender" value="female" ${userData.gender eq "female" ? "checked" : ""}>
 					<div>
 						<label for="gender-male">
 							<span id="label-for-gender-male">남자</span>
@@ -67,8 +67,8 @@
 					</div>
 				</div>
 				<div class="radio-group">
-					<input type="radio" id="country-local" name="country" value="local" <%=userDto == null || (userDto != null && userDto.getCountry().equals("local")) ? "checked" : ""%>>
-					<input type="radio" id="country-foreigner" name="country" value="foreigner" <%=userDto != null && userDto.getCountry().equals("foreigner") ? "checked" : ""%>>
+					<input type="radio" id="country-local" name="country" value="local" ${empty userData or userData.country eq "local" ? "checked" : "" }>
+					<input type="radio" id="country-foreigner" name="country" value="foreigner" ${userData.country eq "foreigner" ? "checked" : ""}>
 					<div>
 						<label for="country-local">
 							<span id="label-for-country-local">내국인</span>
@@ -79,7 +79,7 @@
 					</div>
 				</div>
 			</div>
-			<input type="text" id="phone" name="phone" placeholder="휴대전화번호" value="<%=userDto != null ? userDto.getPhone() : ""%>">
+			<input type="text" id="phone" name="phone" placeholder="휴대전화번호" value="${userData.phone}">
 		</div>
 		<ul class="error-msg-group">
 			<li id="error-msg-name-empty">이름: 필수 정보입니다.</li>
