@@ -154,4 +154,85 @@ public class UserDao {
 		}
 		return user;
 	}
+	
+	public User findUserByPhone(String phone) {
+		User user = null;
+
+		conn = DBManager.getConnection();
+
+		String sql = "SELECT * FROM users WHERE phone=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, phone);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				String username = rs.getString(1);
+				String password = rs.getString(2);
+				String email = rs.getString(3);
+				String name = rs.getString(4);
+				Date date = rs.getDate(5);
+				LocalDate birth = date.toLocalDate();
+				int telecom = rs.getInt(6);
+				String gender = rs.getString(7);
+				String country = rs.getString(8);
+				boolean agree = rs.getBoolean(10);
+				Timestamp regDate = rs.getTimestamp(11);
+				Timestamp modDate = rs.getTimestamp(12);
+
+				user = new User(username, password, email, name, birth, telecom, gender, country, phone, agree, regDate,
+						modDate);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return user;
+	}
+	
+	public User findUserByEmail(String email) {
+		User user = null;
+
+		// 1. DB 연동
+		conn = DBManager.getConnection();
+
+		String sql = "SELECT * FROM users WHERE email=?";
+
+		// 2.
+		// sql 구문을 태운, pstmt 객체의
+		try {
+			pstmt = conn.prepareStatement(sql);
+			// setter를 호출해서 columnIndex와 맵핑할 값을 인자로 넘겨서 처리
+			pstmt.setString(1, email);
+
+			// 3. 준비된 구문을 실행 (결과 테이블이 존재)
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				String username = rs.getString(1);
+				String password = rs.getString(2);
+				String name = rs.getString(4);
+				Date date = rs.getDate(5);
+				LocalDate birth = date.toLocalDate();
+				int telecom = rs.getInt(6);
+				String gender = rs.getString(7);
+				String country = rs.getString(8);
+				String phone = rs.getString(9);
+				boolean agree = rs.getBoolean(10);
+				Timestamp regDate = rs.getTimestamp(11);
+				Timestamp modDate = rs.getTimestamp(12);
+
+				user = new User(username, password, email, name, birth, telecom, gender, country, phone, agree, regDate,
+						modDate);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return user;
+	}
 }
