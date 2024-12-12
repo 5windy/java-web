@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/resources/style/form.css">
-<script src="/resources/script/validation-login.js"></script>
+<script type="module" src="/resources/script/validation-login.js"></script>
 <title>로그인</title>
 </head>
 <body>
@@ -18,8 +18,10 @@
 			<input type="password" id="password" name="password" placeholder="비밀번호">
 		</div>
 		<ul class="error-msg-group">
-			<li id="error-msg-username-empty">아이디: 필수 정보입니다.</li>
-			<li id="error-msg-password-empty">비밀번호: 필수 정보입니다.</li>
+			<li id="error-msg-username-empty" class="error-msg">아이디: 필수 정보입니다.</li>
+			<li id="error-msg-username-pattern" class="error-msg">아이디: 유효하지 않은 값입니다.</li>
+			<li id="error-msg-password-empty" class="error-msg">비밀번호: 필수 정보입니다.</li>
+			<li id="error-msg-password-pattern" class="error-msg">비밀번호: 유효하지 않은 값입니다.</li>
 		</ul>
 	
 		<input type="submit" value="로그인">
