@@ -44,7 +44,7 @@ public class User {
 	}
 
 	public boolean checkPassword(String password) {
-		boolean isChecked = true;
+		boolean isChecked = false;
 		try {
 			isChecked = BCrypt.checkpw(password, this.password);
 		} catch (Exception e) {
