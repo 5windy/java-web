@@ -235,4 +235,48 @@ public class UserDao {
 		}
 		return user;
 	}
+	
+	// Update
+	public User updateUser(UserRequestDto userDto) {
+		conn = DBManager.getConnection();
+		
+		if(conn != null) {
+			String sql = "UPDATE users SET country=?, telecom=?";
+			if(userDto.getPassword() != null)
+				sql += ", password=?";
+			if(userDto.getEmail() != null)
+				sql += ", email=?";
+			if(userDto.getPhone() != null)	
+				sql += ", phone=?";
+			sql += " WHERE username=?";
+			
+			try {
+				int cnt = 0;
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(++ cnt, userDto.getCountry());
+				pstmt.setInt(++ cnt, userDto.getTelecom());
+				
+				if(userDto.getPassword() != null) {
+					String hashedPassword = BCrypt.hashpw(userDto.getPassword(), BCrypt.gensalt());
+					pstmt.setString(++ cnt, hashedPassword);
+				}
+				if(userDto.getEmail() != null)
+					pstmt.setString(++ cnt, userDto.getEmail());
+				if(userDto.getPhone() != null)	
+					pstmt.setString(++ cnt, userDto.getPhone());
+				
+				pstmt.setString(++ cnt, userDto.getUsername());
+				
+				System.out.println("pstmt : " + pstmt);
+				pstmt.execute();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				DBManager.close(conn, pstmt);
+			}
+		}
+		
+		return findUserByUsername(userDto.getUsername());
+	}
 }
