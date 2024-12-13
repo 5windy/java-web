@@ -7,6 +7,19 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	
+	
+	<!-- Servlet 등록 -->
+	<servlet>
+		<servlet-name>Service</servlet-name>
+		<servlet-class>user.controller.ServiceServlet</servlet-class>
+	</servlet>
+	
+	<!-- 등록한 Servlet을 특정 url 패턴에 맵핑 -->
+	<servlet-mapping>
+		<servlet-name>Service</servlet-name>
+		<url-pattern>/service</url-pattern>
+	</servlet-mapping>
 
 	<resource-ref>
 		<description>
