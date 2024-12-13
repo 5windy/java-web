@@ -31,7 +31,7 @@ email, phone의 경우에는 unique 검증
 
 <h4>${log.name}님 환영합니다!</h4>
 <h1>회원정보</h1>
-	<form method="POST" action="/updateFormPro.jsp">
+	<form method="POST" action="/user/update">
 		<div>
 			<input type="text" id="username" name="username" placeholder="아이디" value="${log.username}" disabled>
 			<input type="password" id="password" name="password" placeholder="기존 비밀번호">
@@ -88,7 +88,7 @@ email, phone의 경우에는 unique 검증
 	
 		<div id="btn-group">
 			<input type="submit" value="수정">
-			<input type="button" value="로그아웃" onclick="location.href='/logoutPro.jsp'">
+			<input type="button" value="로그아웃" onclick="location.href='/logout'">
 			<input type="button" value="탈퇴" onclick="location.href='/deleteForm.jsp'">
 		</div>
 	</form>

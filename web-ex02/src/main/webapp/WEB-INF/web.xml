@@ -16,6 +16,46 @@
   	<url-pattern>/login</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<servlet-class>user.controller.LogoutAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Logout</servlet-name>
+  	<url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>DeleteUser</servlet-name>
+  	<servlet-class>user.controller.DeleteFormAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>DeleteUser</servlet-name>
+  	<url-pattern>/user/delete</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>JoinUser</servlet-name>
+  	<servlet-class>user.controller.JoinFormAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>JoinUser</servlet-name>
+  	<url-pattern>/user/join</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UpdateUser</servlet-name>
+  	<servlet-class>user.controller.UpdateFormAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UpdateUser</servlet-name>
+  	<url-pattern>/user/update</url-pattern>
+  </servlet-mapping>
+  
   <resource-ref>
 		<description>
 	    Resource reference to a factory for java.sql.Connection
