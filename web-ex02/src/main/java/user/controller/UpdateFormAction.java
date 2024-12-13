@@ -77,7 +77,7 @@ public class UpdateFormAction extends HttpServlet {
 		user = userDao.updateUser(userDto);
 		session.setAttribute("log", user);
 
-		response.sendRedirect("/myPage.jsp");
+		response.sendRedirect("/mypage");
 	}
 
 }

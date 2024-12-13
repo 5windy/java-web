@@ -53,7 +53,7 @@ public class DeleteFormAction extends HttpServlet {
 			url = "/";
 			
 		} else {
-			url = "/deleteForm.jsp";
+			url = "/delete";
 		}
 		response.sendRedirect(url);
 	}

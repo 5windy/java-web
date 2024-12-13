@@ -13,7 +13,7 @@
 <body>
 <%
 if(session.getAttribute("log") == null) {
-	response.sendRedirect("/loginForm.jsp");
+	response.sendRedirect("/login");
 }
 %>
 
@@ -88,8 +88,8 @@ email, phone의 경우에는 unique 검증
 	
 		<div id="btn-group">
 			<input type="submit" value="수정">
-			<input type="button" value="로그아웃" onclick="location.href='/logout'">
-			<input type="button" value="탈퇴" onclick="location.href='/deleteForm.jsp'">
+			<input type="button" value="로그아웃" onclick="location.href='/user/logout'">
+			<input type="button" value="탈퇴" onclick="location.href='/delete'">
 		</div>
 	</form>
 

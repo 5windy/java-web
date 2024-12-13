@@ -101,7 +101,7 @@ public class JoinFormAction extends HttpServlet {
 			session.setAttribute("userData", userDto);
 			// request.getRequestDispatcher("/joinForm.jsp").forward(request, response);
 			// 주소의 변화가 없음
-			response.sendRedirect("/joinForm.jsp");
+			response.sendRedirect("/join");
 			
 		} else {
 			System.out.println("loginForm으로 이동합니다.");
@@ -110,7 +110,7 @@ public class JoinFormAction extends HttpServlet {
 			
 			// 통과하면 -> loginForm.jsp 페이지로 이동
 			userDao.createUser(userDto);
-			response.sendRedirect("/loginForm.jsp");
+			response.sendRedirect("/login");
 			// 단순 페이지 이동처리를 할 경우, request 객체를 들고 가지 못함
 		}
 	}

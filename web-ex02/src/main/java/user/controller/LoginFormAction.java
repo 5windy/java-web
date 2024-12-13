@@ -51,10 +51,10 @@ public class LoginFormAction extends HttpServlet {
 			// ㄴ ***님 환영합니다.
 			HttpSession session = request.getSession();
 			session.setAttribute("log", user);
-			url = "/myPage.jsp";
+			url = "/mypage";
 		} else {
 			// login form 으로 이동
-			url = "/loginForm.jsp";
+			url = "/login";
 		}
 
 		response.sendRedirect(url);
