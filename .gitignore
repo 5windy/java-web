@@ -1,5 +1,8 @@
 .DS_Store
 
+/bin/
+**/bin/
+
 .metadata
 /Servers/
 
@@ -10,7 +13,6 @@ build
 .project
 
 /META-INF
-/lib
 
 *.jar
 context.xml
