@@ -61,7 +61,7 @@ public class BoardDao {
 			pstmt.setString(4, boardDto.getStatus());
 			return;
 		case "reserv":
-			sql = "INSERT INTO boards(username, title, content, status, post_date) VALUES(?, ?, ?, ?, ?, ?)";
+			sql = "INSERT INTO boards(username, title, content, status, post_date) VALUES(?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(4, boardDto.getStatus());
 			pstmt.setString(5, boardDto.getPostDate().toString());
