@@ -40,8 +40,13 @@ public class UpdateFormAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("log");
+		
+		if(user == null) {
+			response.sendRedirect("/login");
+			return;
+		}
+		
 		String username = user.getUsername();
-
 		String password = request.getParameter("password");
 		String newPassword = request.getParameter("new-password");
 		String email = request.getParameter("email");

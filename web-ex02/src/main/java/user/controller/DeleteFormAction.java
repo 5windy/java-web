@@ -41,6 +41,11 @@ public class DeleteFormAction extends HttpServlet {
 		User user = (User)session.getAttribute("log");
 		String password = request.getParameter("password");
 
+		if(user == null) {
+			response.sendRedirect("/login");
+			return;
+		}
+		
 		String url = "";
 
 		if(user.checkPassword(password)) {
