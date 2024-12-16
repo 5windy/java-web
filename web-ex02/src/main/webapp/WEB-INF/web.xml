@@ -56,6 +56,46 @@
   	<url-pattern>/user/update</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>WriteBoard</servlet-name>
+  	<servlet-class>board.controller.WriteFormAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>WriteBoard</servlet-name>
+  	<url-pattern>/board/write</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UpdateBoard</servlet-name>
+  	<servlet-class>board.controller.UpdateFormAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UpdateBoard</servlet-name>
+  	<url-pattern>/boards/*</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+  	<servlet-name>DeleteBoard</servlet-name>
+  	<servlet-class>board.controller.DeleteAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>DeleteBoard</servlet-name>
+  	<url-pattern>/board/delete</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ListBoard</servlet-name>
+  	<servlet-class>board.controller.BoardListAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ListBoard</servlet-name>
+  	<url-pattern>/boards</url-pattern>
+  </servlet-mapping>
+  
   
   <!-- JSP Page Mapping -->
   <servlet>
@@ -97,6 +137,37 @@
   	<servlet-name>MyPage</servlet-name>
   	<url-pattern>/mypage</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>BoardList</servlet-name>
+  	<jsp-file>/views/board/boardList.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>BoardList</servlet-name>
+  	<url-pattern>/list</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>BoardWriteForm</servlet-name>
+  	<jsp-file>/views/board/writeForm.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>BoardWriteForm</servlet-name>
+  	<url-pattern>/write</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>BoardUpdateForm</servlet-name>
+  	<jsp-file>/views/board/updateForm.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>BoardUpdateForm</servlet-name>
+  	<url-pattern>/update</url-pattern>
+  </servlet-mapping>
+  
   
   <resource-ref>
 		<description>

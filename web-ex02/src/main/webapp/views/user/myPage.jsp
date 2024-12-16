@@ -2,6 +2,7 @@
 <%@page import="user.model.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +12,9 @@
 <title>마이페이지</title>
 </head>
 <body>
-<%
-if(session.getAttribute("log") == null) {
-	response.sendRedirect("/login");
-}
-%>
+<c:if test="${empty log }">
+	<c:redirect url="/login" />
+</c:if>
 
 <%-- 
 Update Form 만들기 

@@ -38,4 +38,44 @@ INSERT INTO telecom VALUES(3, 'LGT');
 INSERT INTO telecom VALUES(4, 'SKT-L');
 INSERT INTO telecom VALUES(5, 'KT-L');
 INSERT INTO telecom VALUES(6, 'LGT-L');
- 
+
+
+CREATE TABLE boards(
+code INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(20),
+title VARCHAR(255) NOT NULL,
+content TEXT NOT NULL,
+status ENUM('show','hide','reserv') NOT NULL DEFAULT 'show',
+post_date DATETIME,
+like_cnt INT DEFAULT 0,
+view_cnt INT DEFAULT 0,
+reg_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+mod_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+FOREIGN KEY(username) REFERENCES users(username) ON DELETE SET NULL
+) AUTO_INCREMENT=1001;
+
+INSERT INTO boards(username, title, content) VALUES('admin','test','test content');
+INSERT INTO boards(username, title, content) VALUES('admin','test1','test content1');
+INSERT INTO boards(username, title, content) VALUES('admin','test2','test content2');
+INSERT INTO boards(username, title, content) VALUES('admin','test3','test content3');
+
+
+CREATE VIEW boards_view AS
+SELECT
+b.*,
+u.name
+FROM boards b
+JOIN users u
+ON b.username=u.username
+WHERE b.status='show' OR b.status='reserv' AND b.post_date <= CURRENT_TIMESTAMP
+ORDER BY code DESC;
+
+
+SET GLOBAL event_scheduler = ON;
+
+CREATE EVENT update_board_status
+ON SCHEDULE EVERY 10 SECOND
+DO
+  UPDATE boards
+  SET status='view'
+  WHERE post_date<=NOW() AND status='reserv';

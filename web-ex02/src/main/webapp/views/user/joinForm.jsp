@@ -2,6 +2,8 @@
 <%@page import="user.model.UserRequestDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+<%@taglib prefix="fn" uri="jakarta.tags.functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,21 +13,10 @@
 <title>회원가입</title>
 </head>
 <body>
-	<%
-	UserRequestDto userDto = (UserRequestDto) session.getAttribute("userData");
+	<c:if test="${not empty log }">
+		<c:redirect url="/mypage" />
+	</c:if>
 	
-	int telecom = 0;
-	Date date = null;
-	String birth = "";
-	
-	if(userDto != null) {
-		telecom = userDto.getTelecom();
-		date = userDto.getBirth();
-		birth = date.toString();
-		birth = birth.replaceAll("-", "");
-	}
-	
-	%>
 	<h1>회원가입</h1>
 	<form id="form-join" method="POST" action="/user/join">
 		<p id="info">실명 인증된 아이디로 가입<span></span></p>
@@ -43,7 +34,8 @@
 		</ul>
 		<div>
 			<input type="text" id="name" name="name" placeholder="이름" value="${userData.name}">
-			<input type="number" id="birth" name="birth" placeholder="생년월일 8자리" value="<%=birth%>">
+			<c:set var="birth" value="${fn:replace(userData.birth, '-', '') }" />
+			<input type="number" id="birth" name="birth" placeholder="생년월일 8자리" value="${birth }">
 			<select id="telecom" name="telecom">
 				<option value="" ${empty userData ? "selected" : "" } disabled>통신사 선택</option>
 				<option value="1" ${userData.telecom eq 1 ? "selected" : ""}>SKT</option>

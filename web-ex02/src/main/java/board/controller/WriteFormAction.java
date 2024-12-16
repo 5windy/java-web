@@ -1,41 +1,47 @@
 package board.controller;
 
+import java.io.IOException;
+
+import board.model.BoardDao;
+import board.model.BoardRequestDto;
+import board.model.BoardResponseDto;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import jakarta.servlet.http.HttpSession;
+import user.model.User;
 
-/**
- * Servlet implementation class WriteFormAction
- */
-@WebServlet("/WriteFormAction")
 public class WriteFormAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public WriteFormAction() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("log");
+		
+		if(user == null) {
+			response.sendRedirect("/login");
+			return;
+		}
+		
+		String username = user.getUsername();
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		String status = request.getParameter("status");
+		String postDate = request.getParameter("postDate");
+		
+		BoardRequestDto boardDto = new BoardRequestDto(username, title, content, status, postDate);
+		
+		BoardDao boardDao = BoardDao.getInstance();
+		BoardResponseDto board = boardDao.createBoard(boardDto);
+		
+		if(board != null) {
+			response.sendRedirect("/boards/" + board.getCode());
+		} else {
+			response.sendRedirect("/write");
+		}
+		
 	}
-
+       
 }
