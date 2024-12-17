@@ -14,7 +14,7 @@ public class DetailViewAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path = request.getPathInfo().substring(1);
+		String path = request.getParameter("no");
 
 		int code = 0;
 		try {

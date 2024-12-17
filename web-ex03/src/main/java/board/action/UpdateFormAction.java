@@ -26,7 +26,7 @@ public class UpdateFormAction implements Action {
 			return;
 		}
 		
-		String path = request.getPathInfo();
+		String path = request.getParameter("no");
 		int code = 0;
 		
 		try {
