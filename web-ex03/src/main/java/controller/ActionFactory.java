@@ -65,8 +65,12 @@ public class ActionFactory {
 	private Action getApiAction(String command, HttpMethod method) {
 		Action action  = null;
 		
-		if(command.equals("search") && method == HttpMethod.POST)
+		if(command.equals("search-username") && method == HttpMethod.POST)
 			return new SearchUsernameAction();
+		else if(command.equals("search-email") && method == HttpMethod.POST)
+			return new SearchEmailAction();
+		else if(command.equals("search-phone") && method == HttpMethod.POST)
+			return new SearchPhoneAction();
 		
 		return action;
 	}
