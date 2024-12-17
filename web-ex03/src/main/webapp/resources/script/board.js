@@ -1,6 +1,6 @@
 const deleteBoard = async (code) => {
-	await fetch(`/board/delete?code=${code}`, {
+	await fetch(`/service?command=delete-board&code=${code}`, {
 		method: "DELETE"
 	});
-	location.href="/boards";
+	location.href="/service?command=list";
 }
