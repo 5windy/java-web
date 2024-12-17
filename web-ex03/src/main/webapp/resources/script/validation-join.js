@@ -35,7 +35,7 @@ window.onload = () => {
 	let isValidAgree = false;
 	let isValidGender = genderMale.checked || genderFemale.checked;
 	
-	username.addEventListener("change", e => {
+	username.addEventListener("change", async(e) => {
 		const input = e.target.value;
 		
 		const errEmpty = document.getElementById("error-msg-username-empty");
@@ -56,6 +56,9 @@ window.onload = () => {
 		} else {
 			updateErrorElementStyle(errPattern, false);
 		}
+		
+		isValidUsername = await checkDuplUsername(input);
+		updateErrorElementStyle(errDupl, !isValidUsername);
 	});
 	
 	username.addEventListener("focusout", e => {
@@ -242,7 +245,7 @@ window.onload = () => {
 		}
 	});
 	  
-	form.addEventListener("submit", e => {
+	form.addEventListener("submit", async(e) => {
 		e.preventDefault();	// 기본 동작 방지
 		
 		const errGenderEmpty = document.getElementById("error-msg-gender-empty");
@@ -266,17 +269,6 @@ window.onload = () => {
 			updateErrorElementStyle(errAgree, false);
 			isValidAgree = true;
 		}
-		
-		/*
-		let isValidUsername = false;
-		let isValidPassword = false;
-		let isValidName = false;
-		let isValidBirth = false;
-		let isValidTelecom = false;
-		let isValidPhone = false;
-		let isValidAgree = false;
-		let isValidGender = false;
-		*/
 		
 		if(!isValidUsername && username.value === "") {
 			const error = document.getElementById("error-msg-username-empty");
@@ -308,10 +300,27 @@ window.onload = () => {
 			updateErrorElementStyle(error, true);												
 		}	
 		
+		isValidUsername = await checkDuplUsername(username.value);
+		
 		if(isValidUsername && isValidPassword && isValidName 
 			&& isValidBirth && isValidTelecom && isValidPhone && isValidAgree && isValidGender) {
 				form.submit();
 		} 
 	});
 	
+}
+
+async function checkDuplUsername(username) {
+	const response = await fetch("/service/api?command=search-username", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({
+			"username" : username
+		})
+	});
+	const json = await response.json();
+	
+	return json.isValid;
 }
