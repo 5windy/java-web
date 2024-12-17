@@ -18,7 +18,8 @@
 	</c:if>
 	
 	<h1>회원가입</h1>
-	<form id="form-join" method="POST" action="/user/join">
+	<form id="form-join" method="POST" action="/service">
+		<input type="hidden" name="command" value="join">
 		<p id="info">실명 인증된 아이디로 가입<span></span></p>
 		<div>
 			<input type="text" id="username" name="username" placeholder="아이디" value="${userData.username}">
