@@ -1,21 +1,20 @@
-package board.controller;
+package board.action;
 
-import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
 import board.model.BoardDao;
 import board.model.BoardResponseDto;
+import controller.Action;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
-public class BoardListAction extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+public class BoardListAction implements Action {
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int page = 1;
 		
 		try {
@@ -38,6 +37,7 @@ public class BoardListAction extends HttpServlet {
 		request.setAttribute("list", list);
 		request.setAttribute("size", boardDao.getTotalSize());
 		dispatcher.forward(request, response);
+		
 	}
 
 }

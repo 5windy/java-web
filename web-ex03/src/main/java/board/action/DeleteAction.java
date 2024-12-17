@@ -1,22 +1,20 @@
-package board.controller;
+package board.action;
 
 import java.io.IOException;
 
 import board.model.BoardDao;
 import board.model.BoardResponseDto;
+import controller.Action;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import user.model.User;
 
-public class DeleteAction extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class DeleteAction implements Action {
 
 	@Override
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 
 		User log = (User) session.getAttribute("log");
@@ -45,7 +43,7 @@ public class DeleteAction extends HttpServlet {
 			url = "/login";
 		}
 
-		response.sendRedirect(url);
+		response.sendRedirect(url);		
 	}
 
 }

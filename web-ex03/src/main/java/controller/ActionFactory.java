@@ -1,10 +1,7 @@
 package controller;
 
-import user.action.DeleteFormAction;
-import user.action.JoinFormAction;
-import user.action.LoginFormAction;
-import user.action.LogoutAction;
-import user.action.UpdateFormAction;
+import board.action.*;
+import user.action.*;
 
 public class ActionFactory {
 	
@@ -27,9 +24,20 @@ public class ActionFactory {
 		else if(command.equals("logout") && method.equals("GET"))
 			return new LogoutAction();
 		else if(command.equals("update") && method.equals("POST"))
-			return new UpdateFormAction();
+			return new user.action.UpdateFormAction();
 		else if(command.equals("delete") && method.equals("POST"))
 			return new DeleteFormAction();
+		else if(command.equals("write") && method.equals("POST"))
+			return new WriteFormAction();
+		else if(command.equals("update-board") && method.equals("POST"))
+			return new board.action.UpdateFormAction();
+		else if(command.equals("update-board") && method.equals("GET"))
+			return new DetailViewAction();
+		else if(command.equals("delete-board") && method.equals("DELETE"))
+			return new DeleteAction();
+		else if(command.equals("list") && method.equals("GET"))
+			return new BoardListAction();
+		
 		
 		return action;
 	}

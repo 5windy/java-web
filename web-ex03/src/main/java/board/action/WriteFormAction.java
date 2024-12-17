@@ -1,22 +1,21 @@
-package board.controller;
+package board.action;
 
 import java.io.IOException;
 
 import board.model.BoardDao;
 import board.model.BoardRequestDto;
 import board.model.BoardResponseDto;
+import controller.Action;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import user.model.User;
 
-public class WriteFormAction extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
+public class WriteFormAction implements Action {
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("log");
 		
@@ -41,7 +40,6 @@ public class WriteFormAction extends HttpServlet {
 		} else {
 			response.sendRedirect("/write");
 		}
-		
 	}
-       
+
 }
