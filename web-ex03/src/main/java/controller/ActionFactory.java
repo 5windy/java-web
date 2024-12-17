@@ -66,7 +66,7 @@ public class ActionFactory {
 		Action action  = null;
 		
 		if(command.equals("search") && method == HttpMethod.POST)
-			return new SearchUserAction();
+			return new SearchUsernameAction();
 		
 		return action;
 	}

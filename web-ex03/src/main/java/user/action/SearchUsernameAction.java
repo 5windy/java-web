@@ -13,7 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import user.model.User;
 import user.model.UserDao;
 
-public class SearchUserAction implements Action {
+public class SearchUsernameAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
