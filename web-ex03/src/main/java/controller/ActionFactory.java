@@ -31,7 +31,7 @@ public class ActionFactory {
 			return new WriteFormAction();
 		else if(command.equals("update-board") && method.equals("POST"))
 			return new board.action.UpdateFormAction();
-		else if(command.equals("update-board") && method.equals("GET"))
+		else if(command.equals("view") && method.equals("GET"))
 			return new DetailViewAction();
 		else if(command.equals("delete-board") && method.equals("DELETE"))
 			return new DeleteAction();
