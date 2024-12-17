@@ -7,95 +7,15 @@
   
   <!-- Servlet Mapping -->
   <servlet>
-  	<servlet-name>Login</servlet-name>
-  	<servlet-class>user.controller.LoginFormAction</servlet-class>
+  	<servlet-name>ServiceServlet</servlet-name>
+  	<servlet-class>controller.ServiceServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>Login</servlet-name>
-  	<url-pattern>/user/login</url-pattern>
+  	<servlet-name>ServiceServlet</servlet-name>
+  	<url-pattern>/service</url-pattern>
   </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>Logout</servlet-name>
-  	<servlet-class>user.controller.LogoutAction</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>Logout</servlet-name>
-  	<url-pattern>/user/logout</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>DeleteUser</servlet-name>
-  	<servlet-class>user.controller.DeleteFormAction</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>DeleteUser</servlet-name>
-  	<url-pattern>/user/delete</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>JoinUser</servlet-name>
-  	<servlet-class>user.controller.JoinFormAction</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>JoinUser</servlet-name>
-  	<url-pattern>/user/join</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>UpdateUser</servlet-name>
-  	<servlet-class>user.controller.UpdateFormAction</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>UpdateUser</servlet-name>
-  	<url-pattern>/user/update</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>WriteBoard</servlet-name>
-  	<servlet-class>board.controller.WriteFormAction</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>WriteBoard</servlet-name>
-  	<url-pattern>/board/write</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>UpdateBoard</servlet-name>
-  	<servlet-class>board.controller.UpdateFormAction</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>UpdateBoard</servlet-name>
-  	<url-pattern>/boards/*</url-pattern>
-  </servlet-mapping> 
-  
-  <servlet>
-  	<servlet-name>DeleteBoard</servlet-name>
-  	<servlet-class>board.controller.DeleteAction</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>DeleteBoard</servlet-name>
-  	<url-pattern>/board/delete</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-  	<servlet-name>ListBoard</servlet-name>
-  	<servlet-class>board.controller.BoardListAction</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>ListBoard</servlet-name>
-  	<url-pattern>/boards</url-pattern>
-  </servlet-mapping>
-  
+
   
   <!-- JSP Page Mapping -->
   <servlet>
