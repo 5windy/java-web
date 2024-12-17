@@ -3,6 +3,7 @@ package user.action;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Timestamp;
 
 import org.json.JSONObject;
 
@@ -26,15 +27,24 @@ public class SearchUsernameAction implements Action {
 		}
 		
 		JSONObject reqData = new JSONObject(builder.toString());
-		String username = reqData.getString("username");
-		
-		UserDao userDao = UserDao.getInstance();
-		User user = userDao.findUserByUsername(username);
-		
-		boolean isValid = user == null;
-		
 		JSONObject resData = new JSONObject();
-		resData.put("isValid", isValid);
+		
+		if(!reqData.has("username")) {
+			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			resData.put("status", HttpServletResponse.SC_BAD_REQUEST);
+			resData.put("error", "BAD REQUEST");
+			resData.put("message", "잘못된 요청입니다. 필수 키 값이 누락되었습니다.");
+			resData.put("timestamp", new Timestamp(System.currentTimeMillis()));
+		} else {
+			String username = reqData.getString("username");
+			
+			UserDao userDao = UserDao.getInstance();
+			User user = userDao.findUserByUsername(username);
+			
+			boolean isValid = user == null;
+			
+			resData.put("isValid", isValid);
+		}
 		
 		// 응답 준비 
 		response.setContentType("application/json");
