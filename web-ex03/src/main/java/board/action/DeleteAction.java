@@ -35,7 +35,7 @@ public class DeleteAction implements Action {
 
 		if (log != null && username.equals(log.getUsername())) {
 			boardDao.deleteBoardByCode(code);
-			url = "/service?command=list";
+			url = "/service/boards?command=list";
 		} else {
 			session.removeAttribute("log");
 			session.invalidate();

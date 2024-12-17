@@ -18,7 +18,7 @@
 </c:if>
 
 <h1>회원탈퇴</h1>
-<form method="POST" action="/service">
+<form method="POST" action="/service/users">
 	<input type="hidden" name="command" value="delete">
 	<div>
 		<input type="text" id="username" name="username" placeholder="아이디" value="${log.username}" disabled>

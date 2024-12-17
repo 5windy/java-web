@@ -15,7 +15,7 @@
 		<c:redirect url="/service?command=list" />
 	</c:if>
 	<h1>${board.title}</h1>
-	<form method="POST" action="/service">
+	<form method="POST" action="/service/boards">
 		<input type="hidden" name="command" value="update-board">
 		<input type="hidden" name="no" value="${board.code }">
 		<div>

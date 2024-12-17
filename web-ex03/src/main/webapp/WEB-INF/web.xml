@@ -13,7 +13,7 @@
   
   <servlet-mapping>
   	<servlet-name>ServiceServlet</servlet-name>
-  	<url-pattern>/service</url-pattern>
+  	<url-pattern>/service/*</url-pattern>
   </servlet-mapping>
 
   
