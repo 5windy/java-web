@@ -36,7 +36,7 @@ public class WriteFormAction implements Action {
 		BoardResponseDto board = boardDao.createBoard(boardDto);
 		
 		if(board != null) {
-			response.sendRedirect("/boards/" + board.getCode());
+			response.sendRedirect("/service?command=view&no=" + board.getCode());
 		} else {
 			response.sendRedirect("/write");
 		}

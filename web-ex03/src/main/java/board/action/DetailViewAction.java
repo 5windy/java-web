@@ -21,7 +21,7 @@ public class DetailViewAction implements Action {
 			code = Integer.parseInt(path);
 		} catch (NumberFormatException e) {
 			System.err.println("유효하지 않은 게시글 번호");
-			response.sendRedirect("/boards");
+			response.sendRedirect("/service?command=list");
 		}
 
 		BoardDao boardDao = BoardDao.getInstance();
@@ -33,7 +33,7 @@ public class DetailViewAction implements Action {
 			request.setAttribute("board", boardDto);
 			dispatcher.forward(request, response);
 		} else {
-			response.sendRedirect("/boards");
+			response.sendRedirect("/service?command=list");
 		}
 		
 	}

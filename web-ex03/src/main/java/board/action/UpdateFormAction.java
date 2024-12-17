@@ -30,7 +30,7 @@ public class UpdateFormAction implements Action {
 		int code = 0;
 		
 		try {
-			code = Integer.parseInt(path.substring(1)); 
+			code = Integer.parseInt(path); 
 		} catch (Exception e) {
 			System.err.println("유효하지 않은 게시글 번호");
 		}
