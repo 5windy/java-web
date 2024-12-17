@@ -22,6 +22,8 @@ public class ActionFactory {
 			return getUserAction(command, method);
 		else if(path.equals("boards"))
 			return getBoardAction(command, method);
+		else if(path.equals("api"))
+			return getApiAction(command, method);
 		
 		return action;
 	}
@@ -56,6 +58,15 @@ public class ActionFactory {
 			return new DeleteAction();
 		else if(command.equals("list") && method == HttpMethod.GET)
 			return new BoardListAction();
+		
+		return action;
+	}
+	
+	private Action getApiAction(String command, HttpMethod method) {
+		Action action  = null;
+		
+		if(command.equals("search") && method == HttpMethod.POST)
+			return new SearchUserAction();
 		
 		return action;
 	}

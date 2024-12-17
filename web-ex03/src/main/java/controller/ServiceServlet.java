@@ -20,7 +20,7 @@ public class ServiceServlet extends HttpServlet {
 		// Action 인스턴스를 요청 내용에 따라 서로 다르게 생성해주는 ActionFatory 
 		// Action 인스턴스를 얻었다면 -> execute() 호출하여 Processing
 		
-		String path = request.getPathInfo(); 
+		String path = request.getPathInfo().substring(1); 
 		String command = request.getParameter("command");
 		String method = request.getMethod();
 		
@@ -29,6 +29,8 @@ public class ServiceServlet extends HttpServlet {
 		
 		if(action != null) {
 			action.execute(request, response);
+		} else {
+			
 		}
 	}
 	
