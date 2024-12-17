@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
+  <display-name>web-ex02</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- Servlet Mapping -->
+  <servlet>
+  	<servlet-name>Login</servlet-name>
+  	<servlet-class>user.controller.LoginFormAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Login</servlet-name>
+  	<url-pattern>/user/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Logout</servlet-name>
+  	<servlet-class>user.controller.LogoutAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Logout</servlet-name>
+  	<url-pattern>/user/logout</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>DeleteUser</servlet-name>
+  	<servlet-class>user.controller.DeleteFormAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>DeleteUser</servlet-name>
+  	<url-pattern>/user/delete</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>JoinUser</servlet-name>
+  	<servlet-class>user.controller.JoinFormAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>JoinUser</servlet-name>
+  	<url-pattern>/user/join</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UpdateUser</servlet-name>
+  	<servlet-class>user.controller.UpdateFormAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UpdateUser</servlet-name>
+  	<url-pattern>/user/update</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>WriteBoard</servlet-name>
+  	<servlet-class>board.controller.WriteFormAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>WriteBoard</servlet-name>
+  	<url-pattern>/board/write</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>UpdateBoard</servlet-name>
+  	<servlet-class>board.controller.UpdateFormAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>UpdateBoard</servlet-name>
+  	<url-pattern>/boards/*</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+  	<servlet-name>DeleteBoard</servlet-name>
+  	<servlet-class>board.controller.DeleteAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>DeleteBoard</servlet-name>
+  	<url-pattern>/board/delete</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>ListBoard</servlet-name>
+  	<servlet-class>board.controller.BoardListAction</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ListBoard</servlet-name>
+  	<url-pattern>/boards</url-pattern>
+  </servlet-mapping>
+  
+  
+  <!-- JSP Page Mapping -->
+  <servlet>
+  	<servlet-name>LoginForm</servlet-name>
+  	<jsp-file>/views/user/loginForm.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>LoginForm</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>DeleteForm</servlet-name>
+  	<jsp-file>/views/user/deleteForm.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>DeleteForm</servlet-name>
+  	<url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>JoinForm</servlet-name>
+  	<jsp-file>/views/user/joinForm.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>JoinForm</servlet-name>
+  	<url-pattern>/join</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>MyPage</servlet-name>
+  	<jsp-file>/views/user/myPage.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>MyPage</servlet-name>
+  	<url-pattern>/mypage</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>BoardList</servlet-name>
+  	<jsp-file>/views/board/boardList.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>BoardList</servlet-name>
+  	<url-pattern>/list</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>BoardWriteForm</servlet-name>
+  	<jsp-file>/views/board/writeForm.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>BoardWriteForm</servlet-name>
+  	<url-pattern>/write</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>BoardUpdateForm</servlet-name>
+  	<jsp-file>/views/board/updateForm.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>BoardUpdateForm</servlet-name>
+  	<url-pattern>/update</url-pattern>
+  </servlet-mapping>
+  
+  
+  <resource-ref>
+		<description>
+	    Resource reference to a factory for java.sql.Connection
+	    instances that may be used for talking to a particular
+	    database that is configured in the Context
+	    configuration for the web application.
+	 	</description>
+		<res-ref-name>jdbc/SampleDB</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+</web-app>

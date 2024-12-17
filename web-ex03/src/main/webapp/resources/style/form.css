@@ -1,0 +1,255 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+
+:root {
+	--primary-color: #09AA5C;
+	--black-to-green: brightness(0) saturate(100%) invert(70%) sepia(200%) saturate(749%) hue-rotate(75deg) brightness(75%) contrast(89%);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Nanum Gothic Coding", monospace;
+	font-weight: 400;
+	font-style: normal;
+	color: gray;
+}
+
+h1 {
+	color: var(--primary-color);
+	text-align: center;
+	margin: 50px auto;
+}
+
+h4 {
+	text-align: center;
+	margin-top: 20px;
+}
+
+form {
+	min-width: 400px;
+	width: 50vw;
+	height: 80vh;
+	margin: auto;
+}
+
+textarea {
+	border: solid 1px lightgray;
+	border-top: none;
+	outline: none;
+	resize: none;
+	padding: 12px;
+	height: 30vh;
+	min-height: 200px;
+}
+
+#info {
+	text-align: right;
+	font-size: 0.8em;
+}
+
+#info > span {
+	display: inline-block;
+	width: 1.2em;
+	aspect-ratio: 1/1;
+	background-image: url("https://icons.veryicon.com/png/o/miscellaneous/zr_icon/checkbox-5.png");
+	background-size: cover;	
+	filter: var(--black-to-green);
+	margin: 0 2px;
+}
+
+form>div {
+	display: flex;
+	flex-direction: column;
+	margin: 5px auto 10px auto;
+}
+
+input, select {
+	outline: none;
+	padding: 14px;
+}
+
+input:focus 
+select:focus {
+	background-color: none;
+}  
+
+#username:focus,
+#password:focus,
+#email:focus,
+#name:focus,
+#birth:focus,
+#telecom:focus,
+#phone:focus
+{
+	color: black;
+	border: solid 2px var(--primary-color);
+}
+
+form>div>input:first-child, form>div>select:first-child {
+	border: solid 1px lightgray;
+	border-radius: 12px 12px 0 0;
+}
+
+form>div>input:last-child, 
+form>div>select:last-child,
+form>div>textarea:last-child {
+	border: solid 1px lightgray;
+	border-top: none;
+	border-radius: 0 0 12px 12px;
+}
+
+form>div>input:not(:first-child), form>div>select:not(:first-child),
+	form .radio-group {
+	border: solid 1px lightgray;
+	border-top: none;
+}
+
+.error-msg-group>li::before {
+	content: "○ ";
+}
+
+.error-msg-group>li, .error-msg {
+	font-size: 0.7em;
+	display: none;
+	color: red;
+	margin-bottom: 5px;
+}
+
+#agree:checked ~ label #icon-img {
+	filter: var(--black-to-green);
+}
+
+#agree-box {
+	padding: 14px;
+	border: solid 1px lightgray;
+	border-radius: 12px;
+}
+
+#agree-box label {
+	display: flex;
+}
+
+#agree-box p {
+	width: fit-content;
+	color: black;
+}
+
+strong {
+	font-weight: 800;
+	color: var(--primary-color);
+	margin: 0 5px;
+}
+
+#radios {
+	display: flex;
+	justify-content: space-between;
+}
+
+#radios > div {
+	width: 50%;
+}
+
+#radios > div:first-child {
+	border-right: none;
+}
+
+.radio-group span {
+	display: inline-block;
+	width: 70px;
+	text-align: center;
+	font-size: 0.8em;
+	padding: 10px;
+	margin: 5px 0;
+	border: solid 1px lightgray;
+}
+
+#gender-male:checked ~ div #label-for-gender-male, 
+#gender-female:checked ~ div #label-for-gender-female, 
+#country-local:checked ~ div #label-for-country-local,
+#country-foreigner:checked ~ div #label-for-country-foreigner
+{
+	border: solid 1px var(--primary-color);
+}
+
+.radio-group span:hover {
+	cursor: pointer;
+}
+
+#label-for-gender-male,
+#label-for-country-local {
+	border-right: none;
+	border-radius: 5px 0 0 5px;
+}
+
+#label-for-gender-female,
+#label-for-country-foreigner {
+	border-radius: 0 5px 5px 0;	
+}
+
+.radio-group div {
+	display: flex;
+	justify-content: center;
+}
+
+.radio-group input[type="radio"],
+input[type="checkbox"]
+{
+	display: none;
+}
+
+input[type="submit"] {
+	width: 100%;
+	border: none;
+	border-radius: 12px;
+	background-color: var(--primary-color);
+	color: white;
+	font-weight: 800;
+	font-size: 1em;
+	margin-top: 20vh;
+}
+
+input[type="submit"]:hover,
+#icon-img:hover {
+	cursor: pointer;
+}
+
+#icon-img {
+	width: 1.2em;
+	aspect-ratio: 1/1;
+	background-image: url("https://icons.veryicon.com/png/o/miscellaneous/zr_icon/checkbox-5.png");
+	background-size: cover;
+	filter: invert(80%);
+}
+
+#btn-group {
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 30px;
+	gap: 12px;
+}
+
+#btn-group input[type="submit"] {
+	font-size: 0.8em;
+}
+
+#btn-group input[type="submit"],
+#btn-group input[type="button"] {
+	color: white;
+	background-color: var(--primary-color);
+	width: 100%;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+	border-radius: 12px;
+}
+
+#btn-group input[type="submit"]:hover,
+#btn-group input[type="button"]:hover {
+	cursor: pointer;
+}
+
+#btn-group input[type="button"]:last-child {
+	background-color: gray;
+}
