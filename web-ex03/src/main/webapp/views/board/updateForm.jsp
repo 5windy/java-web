@@ -12,10 +12,12 @@
 </head>
 <body>
 	<c:if test="${empty board }">
-		<c:redirect url="/boards" />
+		<c:redirect url="/service?command=list" />
 	</c:if>
 	<h1>${board.title}</h1>
-	<form method="POST" action="/board/${board.code}">
+	<form method="POST" action="/service">
+		<input type="hidden" name="command" value="update-board">
+		<input type="hidden" name="no" value="${board.code }">
 		<div>
 			<input type="text" id="title" name="title" value="${board.title}" ${log.username eq board.username ? "" : "disabled" }>
 			<input type="hidden" name="username" value="${board.username }">

@@ -16,7 +16,8 @@
 		<c:redirect url="/mypage" />
 	</c:if>
 	<h1>로그인</h1>
-	<form method="POST" action="/user/login">
+	<form method="POST" action="/service">
+		<input type="hidden" name="command" value="login">
 		<div>
 			<input type="text" id="username" name="username" placeholder="아이디">
 			<input type="password" id="password" name="password" placeholder="비밀번호">

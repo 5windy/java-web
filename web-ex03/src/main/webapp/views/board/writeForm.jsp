@@ -14,7 +14,8 @@
 		<c:redirect url="/login" />
 	</c:if>
 	<h1>글작성</h1>
-	<form method="POST" action="/board/write">
+	<form method="POST" action="/service">
+		<input type="hidden" name="command" value="write">
 		<div>
 			<input type="text" id="title" name="title" placeholder="제목" autofocus>
 			<textarea id="content" name="content"placeholder="내용"></textarea>

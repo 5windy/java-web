@@ -24,7 +24,7 @@
 	<c:forEach var="board" varStatus="status" items="${list }">
 		<div>
 			<span class="no">${size - status.index - ((page - 1) * 10)}</span> 
-			<span class="title"><a href="/boards/${board.code }">${board.title}</a></span>
+			<span class="title"><a href="/service?command=view&no=${board.code }">${board.title}</a></span>
 			<span class="author">${board.name }</span>
 			<span class="reg-date">${fn:substringBefore(board.regDate, " ")}</span>
 			<span class="view-cnt">${board.viewCnt }</span>
@@ -34,7 +34,7 @@
 </div>
 <div id="page-nav">
 	<c:forEach var="page" begin="1" end="${size % 10 == 0 ? size / 10 : size / 10 + 1 }">
-		<span><a href="/boards?page=${page }">${page }</a></span>
+		<span><a href="/service?command=list&page=${page }">${page }</a></span>
 	</c:forEach>
 </div>
 </body>
