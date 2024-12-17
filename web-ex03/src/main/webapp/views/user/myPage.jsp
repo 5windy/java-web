@@ -32,6 +32,8 @@ email, phone의 경우에는 unique 검증
 <h1>회원정보</h1>
 	<form method="POST" action="/service/users">
 		<input type="hidden" name="command" value="update">
+		<input type="hidden" id="user-email" value="${log.email }">
+		<input type="hidden" id="user-phone" value="${log.phone }">
 		<div>
 			<input type="text" id="username" name="username" placeholder="아이디" value="${log.username}" disabled>
 			<input type="password" id="password" name="password" placeholder="기존 비밀번호">
@@ -41,6 +43,7 @@ email, phone의 경우에는 unique 검증
 		<ul class="error-msg-group">
 			<li id="error-msg-password-empty">기존 비밀번호: 비밀번호 변경 시, 필수값입니다.</li>
 			<li id="error-msg-password-pattern">새로운 비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</li>
+			<li id="error-msg-email">이메일: 사용할 수 없는 이메일입니다. 다른 이메일을 입력해 주세요.</li>
 		</ul>
 		<div>
 			<input type="text" id="name" name="name" placeholder="이름" value="${log.name}" disabled>
@@ -84,6 +87,7 @@ email, phone의 경우에는 unique 검증
 		</div>
 		<ul class="error-msg-group">
 			<li id="error-msg-phone-pattern">휴대전화번호: 휴대전화번호가 정확한지 확인해 주세요.</li>
+			<li id="error-msg-phone">휴대전화번호: 사용할 수 없는 휴대전화번호입니다. 다른 휴대전화번호를 입력해 주세요.</li>
 		</ul>
 	
 		<div id="btn-group">

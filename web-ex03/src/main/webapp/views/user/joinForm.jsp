@@ -32,6 +32,7 @@
 			<li id="error-msg-username-empty">아이디: 필수 정보입니다.</li>
 			<li id="error-msg-password-pattern">비밀번호: 8~16자의 영문 대/소문자, 숫자, 특수문자를 사용해 주세요.</li>
 			<li id="error-msg-password-empty">비밀번호: 필수 정보입니다.</li>
+			<li id="error-msg-email">이메일: 사용할 수 없는 이메일입니다. 다른 이메일을 입력해 주세요.</li>
 		</ul>
 		<div>
 			<input type="text" id="name" name="name" placeholder="이름" value="${userData.name}">
@@ -84,6 +85,7 @@
 			<li id="error-msg-gender-empty">성별: 성별을 선택해 주세요.</li>
 			<li id="error-msg-phone-empty">휴대전화번호: 필수 정보입니다.</li>
 			<li id="error-msg-phone-pattern">휴대전화번호: 휴대전화번호가 정확한지 확인해 주세요.</li>
+			<li id="error-msg-phone">휴대전화번호: 사용할 수 없는 휴대전화번호입니다. 다른 휴대전화번호를 입력해 주세요.</li>
 		</ul>
 		<div id="agree-box">
 			<input type="checkbox" id="agree" name="agree">

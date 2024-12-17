@@ -58,3 +58,48 @@ export function formatPhoneString(str) {
 	
 	return result;
 }
+
+export async function checkDuplUsername(username) {
+	const response = await fetch("/service/api?command=search-username", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({
+			"username": username
+		})
+	});
+	const json = await response.json();
+
+	return json.isValid;
+}
+
+export async function checkDuplPhone(phone) {
+	const response = await fetch("/service/api?command=search-phone", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({
+			"phone": phone
+		})
+	});
+	const json = await response.json();
+
+	return json.isValid;
+}
+
+export async function checkDuplEmail(email) {
+	const response = await fetch("/service/api?command=search-email", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json"
+		},
+		body: JSON.stringify({
+			"email": email
+		})
+	});
+	const json = await response.json();
+
+	return json.isValid;
+}
