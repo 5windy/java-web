@@ -74,6 +74,8 @@ public class ActionFactory {
 			return new SearchEmailAction();
 		else if(command.equals("search-phone") && method == HttpMethod.POST)
 			return new SearchPhoneAction();
+		else if(command.equals("books") && method == HttpMethod.GET)
+			return new SearchBooksAction();
 		
 		return action;
 	}
