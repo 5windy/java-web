@@ -88,6 +88,25 @@
   	<url-pattern>/update</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>Header</servlet-name>
+  	<jsp-file>/views/module/header.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Header</servlet-name>
+  	<url-pattern>/header</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>Footer</servlet-name>
+  	<jsp-file>/views/module/footer.jsp</jsp-file>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>Footer</servlet-name>
+  	<url-pattern>/footer</url-pattern>
+  </servlet-mapping>
   
   <resource-ref>
 		<description>
