@@ -1,21 +1,5 @@
 @charset "UTF-8";
 
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
-
-:root {
-	--primary-color: #09AA5C;
-	--black-to-green: brightness(0) saturate(100%) invert(70%) sepia(200%) saturate(749%) hue-rotate(75deg) brightness(75%) contrast(89%);
-}
-
-* {
-	margin: 0;
-	padding: 0;
-	font-family: "Nanum Gothic Coding", monospace;
-	font-weight: 400;
-	font-style: normal;
-	color: gray;
-}
-
 h1 {
 	color: var(--primary-color);
 	text-align: center;
