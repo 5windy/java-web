@@ -23,6 +23,7 @@ h1 {
 
 h2 {
 	text-align: center;
+	margin-bottom: 12px;
 }
 
 a {
@@ -33,6 +34,7 @@ a {
 body {
 	display: grid;
 	grid-template-rows: 160px auto 300px;
+	min-height: 100vh;
 }
 
 header ul {
@@ -43,7 +45,7 @@ header ul {
 	margin: 20px auto;
 }
 
-header ul>li:hover {
+header ul>li:hover a {
 	color: var(--primary-color);
 	cursor: pointer;
 }
@@ -53,6 +55,22 @@ footer {
 	padding: 20px;
 }
 
-.content-container {
-	min-height: 50vh;
+#btn-write {
+	float: center;
+	padding: 12px;
+	background-color: var(--primary-color);
+	color: white;
+	width: 160px;
+	border-radius: 6px;
+	border: none;
+}
+
+#btn-write:hover {
+	cursor: pointer;
+}
+
+#btn-box {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 30px;
 }
