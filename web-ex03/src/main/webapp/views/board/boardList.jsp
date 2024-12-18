@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/resources/style/list.css">
+<script src="/resources/script/board.js"></script>
 <title>게시판</title>
 </head>
 <body>
