@@ -24,7 +24,11 @@ window.onload = async() => {
 	if(path === "/list") {
 		const listContainer = document.getElementById("list-container");
 		
-		const list = await fetchData();
+		let list = await fetchData(page);
+		if(page > 1 && list.length === 0) {
+			list = await fetchData();
+		}
+		
 		list.forEach(board => {
 			listContainer.innerHTML += `
 			<div>
