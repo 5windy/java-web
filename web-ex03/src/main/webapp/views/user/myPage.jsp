@@ -11,6 +11,7 @@
 <script type="module" src="/resources/script/validation-update.js"></script>
 <title>마이페이지</title>
 </head>
+<c:import url="/header" />
 <body>
 <c:if test="${empty log }">
 	<c:redirect url="/login" />
@@ -27,9 +28,9 @@ button :
 부분적으로 수정가능하며 (username, name, birth, gender disabled)
 email, phone의 경우에는 unique 검증
 --%>
-
-<h4>${log.name}님 환영합니다!</h4>
-<h1>회원정보</h1>
+<div class="content-container">
+	<h4>${log.name}님 환영합니다!</h4>
+	<h2>회원정보</h2>
 	<form method="POST" action="/service/users">
 		<input type="hidden" name="command" value="update">
 		<input type="hidden" id="user-email" value="${log.email }">
@@ -96,6 +97,7 @@ email, phone의 경우에는 unique 검증
 			<input type="button" value="탈퇴" onclick="location.href='/delete'">
 		</div>
 	</form>
-
+</div>
 </body>
+<c:import url="/header" />
 </html>

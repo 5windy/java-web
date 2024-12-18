@@ -10,11 +10,13 @@
 <script src="/resources/script/board.js"></script>
 <title>${board.title}</title>
 </head>
+<c:import url="/header" />
 <body>
-	<c:if test="${empty board }">
-		<c:redirect url="/service?command=list" />
-	</c:if>
-	<h1>${board.title}</h1>
+<c:if test="${empty board }">
+	<c:redirect url="/service?command=list" />
+</c:if>
+<div class="content-container">
+	<h2>${board.title}</h2>
 	<form method="POST" action="/service/boards">
 		<input type="hidden" name="command" value="update-board">
 		<input type="hidden" name="no" value="${board.code }">
@@ -40,6 +42,7 @@
 			</div>
 		</c:if>
 	</form>
-	
+</div>
 </body>
+<c:import url="/footer" />
 </html>

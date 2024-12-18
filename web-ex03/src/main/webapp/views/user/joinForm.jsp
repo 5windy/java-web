@@ -12,12 +12,13 @@
 <script type="module" src="/resources/script/validation-join.js"></script>
 <title>회원가입</title>
 </head>
+<c:import url="/header" />
 <body>
-	<c:if test="${not empty log }">
-		<c:redirect url="/mypage" />
-	</c:if>
-	
-	<h1>회원가입</h1>
+<c:if test="${not empty log }">
+	<c:redirect url="/mypage" />
+</c:if>
+<div class="content-container">
+	<h2>회원가입</h2>
 	<form id="form-join" method="POST" action="/service/users">
 		<input type="hidden" name="command" value="join">
 		<p id="info">실명 인증된 아이디로 가입<span></span></p>
@@ -98,6 +99,7 @@
 	
 		<input type="submit" value="인증요청">
 	</form>
-
+</div>
 </body>
+<c:import url="/footer" />
 </html>

@@ -9,11 +9,13 @@
 <link rel="stylesheet" href="/resources/style/form.css">
 <title>글작성</title>
 </head>
+<c:import url="/header" />
 <body>
-	<c:if test="${empty log }">
-		<c:redirect url="/login" />
-	</c:if>
-	<h1>글작성</h1>
+<c:if test="${empty log }">
+	<c:redirect url="/login" />
+</c:if>
+<div class="content-container">
+	<h2>글작성</h2>
 	<form method="POST" action="/service/boards" enctype="multipart/form-data">
 		<input type="hidden" name="command" value="write">
 		<div>
@@ -29,5 +31,7 @@
 		</div>
 		<input type="submit" value="글작성">
 	</form>
+</div>
 </body>
+<c:import url="/footer" />
 </html>

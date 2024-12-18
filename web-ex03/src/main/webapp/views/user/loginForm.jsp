@@ -11,11 +11,13 @@
 <script type="module" src="/resources/script/validation-login.js"></script>
 <title>로그인</title>
 </head>
+<c:import url="/header" />
 <body>
-	<c:if test="${not empty log}">
-		<c:redirect url="/mypage" />
-	</c:if>
-	<h1>로그인</h1>
+<c:if test="${not empty log}">
+	<c:redirect url="/mypage" />
+</c:if>
+<div class="content-container">
+	<h2>로그인</h2>
 	<form method="POST" action="/service/users">
 		<input type="hidden" name="command" value="login">
 		<div>
@@ -31,6 +33,7 @@
 	
 		<input type="submit" value="로그인">
 	</form>
-
+</div>
 </body>
+<c:import url="/footer" />
 </html>
