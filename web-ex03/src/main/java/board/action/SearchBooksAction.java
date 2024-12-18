@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import board.model.BoardDao;
 import board.model.BoardResponseDto;
@@ -38,6 +39,14 @@ public class SearchBooksAction implements Action {
 		
 		// 3. 게시글 컬렉션 객체를 가지고 -> JSON 배열 생성 
 		JSONArray array = new JSONArray(list);
+		
+		int total = boardDao.getTotalSize();
+		
+		JSONObject meta = new JSONObject();
+		meta.put("total", total);
+		meta.put("currentPage", page);
+		
+		array.put(meta);
 		
 		// 4. 응답 처리
 		response.setStatus(HttpServletResponse.SC_OK);

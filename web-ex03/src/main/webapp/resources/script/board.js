@@ -26,20 +26,37 @@ window.onload = async() => {
 		
 		let list = await fetchData(page);
 		if(page > 1 && list.length === 0) {
-			list = await fetchData();
+			page = 1;
+			list = await fetchData(page);
 		}
 		
-		list.forEach(board => {
-			listContainer.innerHTML += `
-			<div>
-				<span class="no">${board.code}</span> 
-				<span class="title"><a href="/service/boards?command=view&no=${board.code }">${board.title}</a></span>
-				<span class="author">${board.name }</span>
-				<span class="reg-date">${board.regDate.split(' ')[0]}</span>
-				<span class="view-cnt">${board.viewCnt }</span>
-				<span class="like-cnt">${board.likeCnt }</span>
-			</div>
-			`;
+		const meta = list[list.length -1];
+		
+		list.forEach((board, i) => {
+			if(i < list.length - 1) {
+				listContainer.innerHTML += `
+				<div>
+					<span class="no">${meta.total - (page - 1 * 10) - i}</span> 
+					<span class="title"><a href="/service/boards?command=view&no=${board.code }">${board.title}</a></span>
+					<span class="author">${board.name }</span>
+					<span class="reg-date">${board.regDate.split(' ')[0]}</span>
+					<span class="view-cnt">${board.viewCnt }</span>
+					<span class="like-cnt">${board.likeCnt }</span>
+				</div>
+				`;
+			}
 		});
+		
+		const body = document.querySelector("body");
+		body.innerHTML += `<div id="page-nav"></div>`;
+		
+		const pageNav = document.getElementById('page-nav');
+		const end = meta.total % 10 == 0 ? meta.total / 10 : meta.total / 10 + 1;
+		
+		for(let i=1; i<=end; i++) {
+			pageNav.innerHTML += `
+			<span><a href="/list?page=${i }">${i }</a></span>
+			`;
+		}
 	}
 }
