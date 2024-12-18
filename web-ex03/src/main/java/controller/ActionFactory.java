@@ -76,6 +76,8 @@ public class ActionFactory {
 			return new SearchPhoneAction();
 		else if(command.equals("boards") && method == HttpMethod.GET)
 			return new SearchBooksAction();
+		else if(command.equals("test") && method == HttpMethod.GET)
+			return new TestRequestAction();
 		
 		return action;
 	}
