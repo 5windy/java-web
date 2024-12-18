@@ -14,11 +14,12 @@
 		<c:redirect url="/login" />
 	</c:if>
 	<h1>글작성</h1>
-	<form method="POST" action="/service/boards">
+	<form method="POST" action="/service/boards" enctype="multipart/form-data">
 		<input type="hidden" name="command" value="write">
 		<div>
 			<input type="text" id="title" name="title" placeholder="제목" autofocus>
 			<textarea id="content" name="content"placeholder="내용"></textarea>
+			<input type="file" id="file" name="file">
 			<select id="status" name="status">
 				<option value="show" selected>게시</option>
 				<option value="hide">숨김</option>
