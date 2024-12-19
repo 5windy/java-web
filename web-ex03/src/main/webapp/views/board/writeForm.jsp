@@ -16,12 +16,11 @@
 </c:if>
 <div class="content-container">
 	<h2>글작성</h2>
-	<form method="POST" action="/service/boards" enctype="multipart/form-data">
+	<form method="POST" action="/service/boards">
 		<input type="hidden" name="command" value="write">
 		<div>
 			<input type="text" id="title" name="title" placeholder="제목" autofocus>
 			<textarea id="content" name="content"placeholder="내용"></textarea>
-			<input type="file" id="file" name="file">
 			<select id="status" name="status">
 				<option value="show" selected>게시</option>
 				<option value="hide">숨김</option>
